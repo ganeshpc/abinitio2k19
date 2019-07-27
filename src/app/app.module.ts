@@ -11,11 +11,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { CompetitionsComponent } from './components/competitions/competitions.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    CompetitionsComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    DepartmentsComponent,
+    FaqComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
