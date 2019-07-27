@@ -1,10 +1,13 @@
 <!-- [opened]="(isHandset$ | async) === false" -->
 
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav"
+      fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'">
+
     <mat-toolbar>Menu</mat-toolbar>
+
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/competitions']">Competition</a>
       <a mat-list-item [routerLink]="['/departments']">Departments</a>
@@ -12,6 +15,7 @@
       <a mat-list-item [routerLink]="['/about-us']">About Us</a>
       <a mat-list-item [routerLink]="['/faq']">FAQ's</a>
     </mat-nav-list>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -23,16 +27,14 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>abinitio2k19</span>
+      <span><a [routerLink]="['/']">Abinitio</a></span>
       <span class="spacer"></span>
 
-
-      <a mat-list-item [routerLink]="['/competitions']" *ngIf="!(isHandset$ | async)">Competition</a>
-      <a mat-list-item [routerLink]="['/departments']" *ngIf="!(isHandset$ | async)">Departments</a>
-      <a mat-list-item [routerLink]="['/contact-us']" *ngIf="!(isHandset$ | async)">Contact Us</a>
-      <a mat-list-item [routerLink]="['/about-us']" *ngIf="!(isHandset$ | async)">About Us</a>
-      <a mat-list-item [routerLink]="['/faq']" *ngIf="!(isHandset$ | async)">FAQ's</a>
-
+      <a mat-list-item matRipple [routerLink]="['/competitions']" *ngIf="!(isHandset$ | async)">Competitions</a>
+      <a mat-list-item matRipple [routerLink]="['/departments']" *ngIf="!(isHandset$ | async)">Departments</a>
+      <a mat-list-item matRipple [routerLink]="['/contact-us']" *ngIf="!(isHandset$ | async)">Contact Us</a>
+      <a mat-list-item matRipple [routerLink]="['/about-us']" *ngIf="!(isHandset$ | async)">About Us</a>
+      <a mat-list-item matRipple [routerLink]="['/faq']" *ngIf="!(isHandset$ | async)">FAQ's</a>
 
     </mat-toolbar>
     <router-outlet></router-outlet>
