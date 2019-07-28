@@ -1,9 +1,9 @@
 export interface Student {
-  id: string,
+  id: string;
 
-  name: string,
-  department: string,
-  designation: string,
-  mobNo: string,
-  imagePath: string
+  name: string;
+  department: string;
+  designation: string;
+  mobNo: string;
+  imagePath: string;
 }

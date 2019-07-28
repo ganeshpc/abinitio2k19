@@ -1,17 +1,17 @@
 export interface Competition {
-  id: string,
+  id: string;
 
-  title: string,
-  department: string,
+  title: string;
+  department: string;
 
-  imagePath: string,
+  imagePath: string;
 
-  shortDescription: string,
-  longDescription: string,
-  rules: string,
-  registrationFees: number,
+  shortDescription: string;
+  longDescription: string;
+  rules: string;
+  registrationFees: number;
 
-  coordinator: Student,
-  subCoordinator1: Student,
-  subCoordinator2: Student,
+  coordinator: string;
+  subCoordinator1: string;
+  subCoordinator2: string;
 }
