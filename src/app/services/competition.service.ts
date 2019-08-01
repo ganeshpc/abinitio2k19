@@ -17,6 +17,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -30,6 +31,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -43,6 +45,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -56,6 +59,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -69,6 +73,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -82,6 +87,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -95,6 +101,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -108,6 +115,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -121,6 +129,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
@@ -134,6 +143,7 @@ export class CompetitionService {
       longDescription: 'hiiii',
       rules: 'no rules',
       registrationFees: 0,
+      feesPer: 'competitor',
       coordinator: 'no one',
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'

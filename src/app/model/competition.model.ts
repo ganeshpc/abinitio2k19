@@ -10,6 +10,7 @@ export interface Competition {
   longDescription: string;
   rules: string;
   registrationFees: number;
+  feesPer: string;
 
   coordinator: string;
   subCoordinator1: string;
