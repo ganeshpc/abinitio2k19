@@ -3,4 +3,7 @@ export interface Department {
 
   name: string;
   hod: string;
+
+  shortDescription: string;
+  longDescription: string;
 }

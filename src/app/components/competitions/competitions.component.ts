@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CompetitionService } from 'src/app/services/competition.service';
+import { CompetitionService } from 'src/app/services/competition/competition.service';
 import { Competition } from 'src/app/model/competition.model';
 import { Subscription } from 'rxjs';
 

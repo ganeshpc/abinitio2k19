@@ -22,6 +22,7 @@ import { DepartmentsComponent } from './components/departments/departments.compo
 import { FaqComponent } from './components/faq/faq.component';
 import { HomeComponent } from './components/home/home.component';
 import { CompetitionCardComponent } from './components/competition-card/competition-card.component';
+import { DepartmentCardComponent } from './components/department-card/department-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CompetitionCardComponent } from './components/competition-card/competit
     DepartmentsComponent,
     FaqComponent,
     HomeComponent,
-    CompetitionCardComponent
+    CompetitionCardComponent,
+    DepartmentCardComponent
   ],
   imports: [
     BrowserModule,
