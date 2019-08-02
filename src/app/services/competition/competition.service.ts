@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Competition } from '../model/competition.model';
+import { Competition } from '../../model/competition.model';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -140,15 +140,15 @@ export class CompetitionService {
     }
   ];
 
-  private competitionsObj = new Subject<Competition[]>();
+  private competitionsObs = new Subject<Competition[]>();
 
   constructor() { }
 
   getCompetitionsObjservable() {
-    return this.competitionsObj.asObservable();
+    return this.competitionsObs.asObservable();
   }
 
   getCompetitions() {
-    this.competitionsObj.next([...this.competitions]);
+    this.competitionsObs.next([...this.competitions]);
   }
 }
