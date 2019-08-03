@@ -18,16 +18,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
-import { CompetitionsComponent } from './components/competitions/competitions.component';
+import { CompetitionsComponent } from './components/competitions/competitions/competitions.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { DepartmentsComponent } from './components/departments/departments.component';
+import { DepartmentsComponent } from './components/departments/departments/departments.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { HomeComponent } from './components/home/home.component';
-import { CompetitionCardComponent } from './components/competition-card/competition-card.component';
-import { DepartmentCardComponent } from './components/department-card/department-card.component';
+import { CompetitionCardComponent } from './components/competitions/competition-card/competition-card.component';
+import { DepartmentCardComponent } from './components/departments/department-card/department-card.component';
 import { ClubsComponent } from './components/clubs/clubs/clubs.component';
 import { ClubCardComponent } from './components/clubs/club-card/club-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ClubCardComponent } from './components/clubs/club-card/club-card.compon
     MatListModule,
     MatRippleModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

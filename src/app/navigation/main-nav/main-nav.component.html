@@ -15,6 +15,10 @@
       <a mat-list-item [routerLink]="['/contact-us']">Contact Us</a>
       <a mat-list-item [routerLink]="['/about-us']">About Us</a>
       <a mat-list-item [routerLink]="['/faq']">FAQ's</a>
+
+      <span class="spacer"></span>
+
+      <a mat-list-item [routerLink]="['/faq']">adminLogin</a>
     </mat-nav-list>
 
   </mat-sidenav>
@@ -28,7 +32,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+
+
       <span><a [routerLink]="['/']">Abinitio</a></span>
+
       <span class="spacer"></span>
 
       <button mat-button> <a mat-list-item [routerLink]="['/competitions']" *ngIf="!(isHandset$ | async)">Competitions</a> </button>
@@ -40,11 +47,14 @@
           <mat-icon  role="img" aria-hidden="true">arrow_drop_down</mat-icon>
         </span>
       </button>
+
       <mat-menu #moreMenu="matMenu" xPosition="before">
         <a mat-menu-item matRipple [routerLink]="['/contact-us']" *ngIf="!(isHandset$ | async)">Contact Us</a>
         <a mat-menu-item matRipple [routerLink]="['/about-us']" *ngIf="!(isHandset$ | async)">About Us</a>
         <a mat-menu-item matRipple [routerLink]="['/faq']" *ngIf="!(isHandset$ | async)">FAQ's</a>
       </mat-menu>
+
+
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
