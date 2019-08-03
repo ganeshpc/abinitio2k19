@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Competition } from '../../model/competition.model';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CompetitionService {
 
   private competitions: Competition[] = [
@@ -152,7 +154,7 @@ export class CompetitionService {
 
   private competitionsObs = new Subject<Competition[]>();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getCompetitionsObjservable() {
     return this.competitionsObs.asObservable();
@@ -161,4 +163,39 @@ export class CompetitionService {
   getCompetitions() {
     this.competitionsObs.next([...this.competitions]);
   }
+
+  addCompetition() {
+
+    const competition: Competition = {
+      id: '1',
+      title: 'electrospark',
+      department: 'computer',
+      imagePath: 'backend/image.png',
+      shortDescription: 'hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
+      longDescription: 'hiiii',
+      rules: 'no rules',
+      registrationFees: 0,
+      feesPer: 'competitor',
+      coordinator: 'no one',
+      subCoordinator1: 'any one',
+      subCoordinator2: 'some one'
+    };
+
+    // const competitionData = new FormData();
+    // competitionData.append('title', competition.title);
+    // competitionData.append('department', competition.department);
+    // competitionData.append('imagePath', competition.imagePath);
+    // competitionData.append('shortDescription', competition.shortDescription);
+    // competitionData.append('longDescription', competition.longDescription);
+    // competitionData.append('rules', competition.rules);
+    // competitionData.append('registrationFess', competition.registrationFees);
+    // competitionData.append('feesPer', competition.feesPer);
+
+    this.http.post<{message: string}> ('http://localhost:3000/api/competitions', competition)
+      .subscribe( (response) => {
+        console.log(response);
+      });
+  }
+
+
 }

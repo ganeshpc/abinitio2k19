@@ -23,6 +23,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { HomeComponent } from './components/home/home.component';
 import { CompetitionCardComponent } from './components/competition-card/competition-card.component';
 import { DepartmentCardComponent } from './components/department-card/department-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,8 @@ import { DepartmentCardComponent } from './components/department-card/department
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
