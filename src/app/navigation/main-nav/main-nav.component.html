@@ -35,7 +35,11 @@
       <button mat-button> <a mat-list-item [routerLink]="['/departments']" *ngIf="!(isHandset$ | async)">Departments</a> </button>
       <button mat-button> <a mat-list-item [routerLink]="['/clubs']" *ngIf="!(isHandset$ | async)">Clubs</a> </button>
 
-      <button mat-button [matMenuTriggerFor]="moreMenu" *ngIf="!(isHandset$ | async)">More</button>
+      <button mat-button [matMenuTriggerFor]="moreMenu" *ngIf="!(isHandset$ | async)">
+        <span class="mat-button-wrapper"> More
+          <mat-icon  role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+        </span>
+      </button>
       <mat-menu #moreMenu="matMenu" xPosition="before">
         <a mat-menu-item matRipple [routerLink]="['/contact-us']" *ngIf="!(isHandset$ | async)">Contact Us</a>
         <a mat-menu-item matRipple [routerLink]="['/about-us']" *ngIf="!(isHandset$ | async)">About Us</a>
