@@ -18,6 +18,7 @@ const competitionsRoutes = require('./routes/competitions');
 const clubRoutes = require('./routes/club');
 const departmentRoutes = require('./routes/department');
 const professorRoutes = require('./routes/professor');
+const studentRoutes = require('./routes/student');
 
 
 //CORS
@@ -34,7 +35,7 @@ app.use('/api/competitions', competitionsRoutes);
 app.use('/api/clubs', clubRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/professors', professorRoutes);
-
+app.use('/api/students', studentRoutes);
 
 
 module.exports = app;
