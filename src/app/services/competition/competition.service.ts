@@ -156,7 +156,7 @@ export class CompetitionService {
 
   constructor(private http: HttpClient) { }
 
-  getCompetitionsObjservable() {
+  getCompetitionsObservable() {
     return this.competitionsObs.asObservable();
   }
 
@@ -180,16 +180,6 @@ export class CompetitionService {
       subCoordinator1: 'any one',
       subCoordinator2: 'some one'
     };
-
-    // const competitionData = new FormData();
-    // competitionData.append('title', competition.title);
-    // competitionData.append('department', competition.department);
-    // competitionData.append('imagePath', competition.imagePath);
-    // competitionData.append('shortDescription', competition.shortDescription);
-    // competitionData.append('longDescription', competition.longDescription);
-    // competitionData.append('rules', competition.rules);
-    // competitionData.append('registrationFess', competition.registrationFees);
-    // competitionData.append('feesPer', competition.feesPer);
 
     this.http.post<{message: string}> ('http://localhost:3000/api/competitions', competition)
       .subscribe( (response) => {

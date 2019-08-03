@@ -1,7 +1,7 @@
 export interface Competition {
   id: string;
 
-  title: string;
+  name: string;
   department: string;
 
   imagePath: string;
