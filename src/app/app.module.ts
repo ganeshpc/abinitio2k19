@@ -26,6 +26,8 @@ import { FaqComponent } from './components/faq/faq.component';
 import { HomeComponent } from './components/home/home.component';
 import { CompetitionCardComponent } from './components/competition-card/competition-card.component';
 import { DepartmentCardComponent } from './components/department-card/department-card.component';
+import { ClubsComponent } from './components/clubs/clubs/clubs.component';
+import { ClubCardComponent } from './components/clubs/club-card/club-card.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { DepartmentCardComponent } from './components/department-card/department
     FaqComponent,
     HomeComponent,
     CompetitionCardComponent,
-    DepartmentCardComponent
+    DepartmentCardComponent,
+    ClubsComponent,
+    ClubCardComponent
   ],
   imports: [
     BrowserModule,

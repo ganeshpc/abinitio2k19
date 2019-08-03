@@ -16,7 +16,7 @@ export class CompetitionsComponent implements OnInit, OnDestroy {
   constructor(private competitionService: CompetitionService) { }
 
   ngOnInit() {
-    this.competitionSub = this.competitionService.getCompetitionsObjservable().subscribe( (competitions: Competition[]) => {
+    this.competitionSub = this.competitionService.getCompetitionsObservable().subscribe( (competitions: Competition[]) => {
       this.competitions = competitions;
     });
 
