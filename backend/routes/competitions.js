@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
 
   const competition = new Competition({
-    title: req.body.title,
+    name: req.body.name,
     department: req.body.department,
     imagePath: req.body.imagePath,
     shortDescription: req.body.shortDescription,

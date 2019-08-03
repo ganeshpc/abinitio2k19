@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const competitionSchema = mongoose.Schema({
-  title: {type: String, require: true},
+  name: {type: String, require: true},
   department: {type: String, require: true},
 
   imagePath: {type: String, require: true},
