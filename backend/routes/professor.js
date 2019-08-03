@@ -17,3 +17,5 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   //update prof
 });
+
+module.exports = router;
