@@ -12,7 +12,7 @@ export class CompetitionService {
   private competitions: Competition[] = [
     {
       id: '1',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -26,7 +26,7 @@ export class CompetitionService {
     },
     {
       id: '2',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -40,7 +40,7 @@ export class CompetitionService {
     },
     {
       id: '3',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -54,7 +54,7 @@ export class CompetitionService {
     },
     {
       id: '4',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -68,7 +68,7 @@ export class CompetitionService {
     },
     {
       id: '5',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -82,7 +82,7 @@ export class CompetitionService {
     },
     {
       id: '6',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -96,7 +96,7 @@ export class CompetitionService {
     },
     {
       id: '7',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -110,7 +110,7 @@ export class CompetitionService {
     },
     {
       id: '8',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -124,7 +124,7 @@ export class CompetitionService {
     },
     {
       id: '9',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -138,7 +138,7 @@ export class CompetitionService {
     },
     {
       id: '10',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
@@ -168,7 +168,7 @@ export class CompetitionService {
 
     const competition: Competition = {
       id: '1',
-      title: 'electrospark',
+      name: 'electrospark',
       department: 'computer',
       imagePath: 'backend/image.png',
       shortDescription: 'hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',

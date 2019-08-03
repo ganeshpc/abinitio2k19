@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
+app.use(express.json());                       //for using body json of request
 
-app.use(express.json());
 
 //connecting mongo db
 mongoose.connect('mongodb://localhost/test?authSource=admin', { user: 'admin', pass: 'abinitio2k19', useNewUrlParser: true }).then( () => {
@@ -12,19 +12,16 @@ mongoose.connect('mongodb://localhost/test?authSource=admin', { user: 'admin', p
   console.log("Connection down!!!");
 });
 
-//routing for competition route
+
+//Routes
 const competitionsRoutes = require('./routes/competitions');
+const clubRoutes = require('./routes/club');
+const departmentRoutes = require('./routes/department');
+const professorRoutes = require('./routes/professor');
+const studentRoutes = require('./routes/student');
 
-//initial get url
-app.get('/message', (req, res) => {
-  console.log("hello");
-  res.send("hello");
-});
 
-//defining schemas
-const Competition = require('./schemas/competition.schema');
-const Student = require('./schemas/student.schema');
-
+//CORS
 app.use( (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -32,7 +29,13 @@ app.use( (req, res, next) => {
   next();
 });
 
-//instruct server to route the url of below given file in competitionRout
+
+//Routing
 app.use('/api/competitions', competitionsRoutes);
+app.use('/api/clubs', clubRoutes);
+app.use('/api/departments', departmentRoutes);
+app.use('/api/professors', professorRoutes);
+app.use('/api/students', studentRoutes);
+
 
 module.exports = app;
