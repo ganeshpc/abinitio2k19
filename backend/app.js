@@ -17,6 +17,7 @@ mongoose.connect('mongodb://localhost/test?authSource=admin', { user: 'admin', p
 const competitionsRoutes = require('./routes/competitions');
 const clubRoutes = require('./routes/club');
 const departmentRoutes = require('./routes/department');
+const professorRoutes = require('./routes/professor');
 
 
 //CORS
@@ -32,6 +33,7 @@ app.use( (req, res, next) => {
 app.use('/api/competitions', competitionsRoutes);
 app.use('/api/clubs', clubRoutes);
 app.use('/api/departments', departmentRoutes);
+app.use('/api/professors', professorRoutes);
 
 
 
