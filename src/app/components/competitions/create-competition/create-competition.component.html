@@ -1,0 +1,44 @@
+<div class="container">
+  <mat-card>
+    <form [formGroup]="form">
+
+      <mat-form-field>
+        <input matInput type="text" formControlName="name" placeholder="Competition Name">
+        <mat-error *ngIf="form.get('name').invalid">Invalid Name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Department" formControlName="department">
+          <mat-option>Computer Science</mat-option>
+          <mat-option>Automobile</mat-option>
+          <mat-option>Civil</mat-option>
+          <mat-option>Electronics and Telecommunication</mat-option>
+          <mat-option>Instrumentation and Control</mat-option>
+          <mat-option>Mechanical</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput rows="4" formControlName="shortDescription" placeholder="Short Description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+          <textarea matInput rows="10" formControlName="longDescription" placeholder="Long Description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+          <textarea matInput rows="4" formControlName="rules" placeholder="rules"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-select placeholder="Fees Per" formControlName="feesPer">
+            <mat-option>Participant</mat-option>
+            <mat-option>Team</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      <button mat-raised-button color="accent" type="submit">Save</button>
+
+    </form>
+  </mat-card>
+</div>

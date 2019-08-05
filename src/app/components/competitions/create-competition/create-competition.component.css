@@ -1,0 +1,19 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  width: 80%;
+  max-width: 900px;
+  min-width: 200px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-around;
+  justify-content: center;
+}

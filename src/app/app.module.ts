@@ -16,6 +16,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CompetitionsComponent } from './components/competitions/competitions/competitions.component';
@@ -28,7 +32,7 @@ import { CompetitionCardComponent } from './components/competitions/competition-
 import { DepartmentCardComponent } from './components/departments/department-card/department-card.component';
 import { ClubsComponent } from './components/clubs/clubs/clubs.component';
 import { ClubCardComponent } from './components/clubs/club-card/club-card.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CreateCompetitionComponent } from './components/competitions/create-competition/create-competition.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CompetitionCardComponent,
     DepartmentCardComponent,
     ClubsComponent,
-    ClubCardComponent
+    ClubCardComponent,
+    CreateCompetitionComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatRippleModule,
     MatCardModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

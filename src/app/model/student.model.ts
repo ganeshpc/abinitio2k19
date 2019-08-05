@@ -3,7 +3,7 @@ export interface Student {
 
   name: string;
   department: string;
-  designation: string;
   mobNo: string;
+  email: string;
   imagePath: string;
 }
