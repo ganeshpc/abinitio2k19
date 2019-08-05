@@ -1,6 +1,6 @@
 <div class="container">
     <mat-card>
-      <form [formGroup]="form">
+      <form [formGroup]="form" (submit)="onSaveStudent()">
 
         <mat-form-field>
           <input matInput type="text" formControlName="name" placeholder="Participant Name">
@@ -16,20 +16,23 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="number" formControlName="rollNo" placeholder="Roll No">
+          <input matInput type="number" formControlName="rollNo" placeholder="Roll Number">
+          <mat-error *ngIf="form.get('rollNo').invalid">Invalid Roll Number</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <input matInput type="number" formControlName="mobNo" placeholder="Mobile No">
+          <mat-error *ngIf="form.get('mobNo').invalid">Invalid Mobile Number</mat-error>
         </mat-form-field>
 
         <mat-form-field>
             <input matInput type="email" formControlName="email" placeholder="Email Id">
+            <mat-error *ngIf="form.get('email').invalid">Invalid Email Id</mat-error>
         </mat-form-field>
 
         <div>
           <span class="spacer"></span>
-          <button mat-raised-button color="accent" type="submit">Register</button>
+          <button mat-raised-button color="accent" type="submit">Save</button>
         </div>
 
       </form>

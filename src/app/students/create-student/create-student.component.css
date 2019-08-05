@@ -1,5 +1,6 @@
 mat-form-field {
   width: 100%;
+  padding: 5px;
 }
 
 mat-card {
@@ -8,7 +9,7 @@ mat-card {
   min-width: 200px;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.493);
 }
 
 .container {
@@ -20,4 +21,8 @@ mat-card {
 
 spacer {
   flex: 1 1 auto;
+}
+
+.button {
+  margin: 1rem;
 }

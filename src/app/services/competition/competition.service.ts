@@ -164,22 +164,7 @@ export class CompetitionService {
     this.competitionsObs.next([...this.competitions]);
   }
 
-  addCompetition() {
-
-    const competition: Competition = {
-      id: '1',
-      name: 'electrospark',
-      department: 'computer',
-      imagePath: 'backend/image.png',
-      shortDescription: 'hi this is the short descriptio of the event adsf jhasfdjha fasdgha fdas fdf afaddkjgkafs sadf gkgfsa asf ksdfa sda ghhksfd fdsag ksdaf gsdaf hsfadj fs ggsfdg sdf gasf',
-      longDescription: 'hiiii',
-      rules: 'no rules',
-      registrationFees: 0,
-      feesPer: 'competitor',
-      coordinator: 'no one',
-      subCoordinator1: 'any one',
-      subCoordinator2: 'some one'
-    };
+  addCompetition(competition: Competition) {
 
     this.http.post<{message: string}> ('http://localhost:3000/api/competitions', competition)
       .subscribe( (response) => {

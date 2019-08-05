@@ -1,5 +1,6 @@
 mat-form-field {
   width: 100%;
+  padding: 5px;
 }
 
 mat-card {
@@ -16,4 +17,8 @@ mat-card {
   flex-flow: row wrap;
   align-content: space-around;
   justify-content: center;
+}
+
+.button {
+  margin: 1rem;
 }

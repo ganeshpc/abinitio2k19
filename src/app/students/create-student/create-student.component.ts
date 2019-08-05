@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { StudentService } from 'src/app/services/student/student.service';
+import { Student } from 'src/app/model/student.model';
 
 @Component({
   selector: 'app-create-student',
@@ -9,6 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CreateStudentComponent implements OnInit {
 
   form: FormGroup;
+  isLoading = false;
 
   public departmentNames: string[] = [
     'Computer Science',
@@ -19,7 +22,7 @@ export class CreateStudentComponent implements OnInit {
     'Mechanical'
   ];
 
-  constructor() { }
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -43,6 +46,26 @@ export class CreateStudentComponent implements OnInit {
         validators: [Validators.required, Validators.email]
       })
     });
+  }
+
+  onSaveStudent() {
+    if (this.form.invalid) {
+      return;
+    }
+    this.isLoading = true;
+    const student: Student = {
+      id: null,
+      name: this.form.value.name,
+      department: this.form.value.department,
+      rollNo: this.form.value.rollNo,
+      mobNo: this.form.value.mobNo,
+      email: this.form.value.email,
+      imagePath: null
+    };
+
+    this.studentService.addStudent(student);
+
+    this.form.reset();
   }
 
 }
