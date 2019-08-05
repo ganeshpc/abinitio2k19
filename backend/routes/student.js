@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  //return student
+  //return students
 });
 
 router.get('/:id', (req, res) => {

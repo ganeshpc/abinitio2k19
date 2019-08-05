@@ -9,6 +9,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ClubsComponent } from './components/clubs/clubs/clubs.component';
 import { CreateCompetitionComponent } from './components/competitions/create-competition/create-competition.component';
+import { CreateStudentComponent } from './students/create-student/create-student.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'faq', component: FaqComponent},
 
-  {path: 'create-competition', component: CreateCompetitionComponent}
+  {path: 'create-competition', component: CreateCompetitionComponent},
+  {path: 'create-student', component: CreateStudentComponent}
 ];
 
 @NgModule({

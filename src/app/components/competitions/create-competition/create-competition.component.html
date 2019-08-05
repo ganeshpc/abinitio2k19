@@ -9,12 +9,9 @@
 
       <mat-form-field>
         <mat-select placeholder="Department" formControlName="department">
-          <mat-option>Computer Science</mat-option>
-          <mat-option>Automobile</mat-option>
-          <mat-option>Civil</mat-option>
-          <mat-option>Electronics and Telecommunication</mat-option>
-          <mat-option>Instrumentation and Control</mat-option>
-          <mat-option>Mechanical</mat-option>
+          <mat-option *ngFor="let departmentName of departmentNames" [value]="departmentName">
+            {{ departmentName }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 

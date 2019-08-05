@@ -10,7 +10,14 @@ export class CreateCompetitionComponent implements OnInit {
 
   form: FormGroup;
 
-
+  public departmentNames: string[] = [
+    'Computer Science',
+    'Automobile',
+    'Civil',
+    'Electronics and Telecommunication',
+    'Instrumentation and Control',
+    'Mechanical'
+  ];
 
   constructor() { }
 
