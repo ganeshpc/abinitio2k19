@@ -1,0 +1,32 @@
+<div class="container">
+    <mat-card>
+      <form [formGroup]="form" (submit)="onSaveDepartment()">
+
+        <mat-form-field>
+          <mat-select placeholder="Department" formControlName="name">
+            <mat-option *ngFor="let departmentName of departmentNames" [value]="departmentName">
+              {{ departmentName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="hod" placeholder="HOD Name">
+            <mat-error *ngIf="form.get('hod').invalid">Invalid Name</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput rows="4" formControlName="shortDescription" placeholder="Short Description"></textarea>
+          <mat-error *ngIf="form.get('shortDescription').invalid">Invalid Description</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput rows="10" formControlName="longDescription" placeholder="Long Description"></textarea>
+            <mat-error *ngIf="form.get('longDescription').invalid">Invalid Description</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Save</button>
+
+      </form>
+    </mat-card>
+</div>

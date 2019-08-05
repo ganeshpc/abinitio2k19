@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Department } from '../../model/department.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class DepartmentService {
       hod: 'HOD COMP',
 
       shortDescription: 'this is short description',
-      longDescription: 'long description'
+      longDescription: 'long description',
+
+      imagePath: null
     },
     {
       id: '2',
@@ -22,7 +25,9 @@ export class DepartmentService {
       hod: 'HOD COMP',
 
       shortDescription: 'this is short description',
-      longDescription: 'long description'
+      longDescription: 'long description',
+
+      imagePath: null
     },
     {
       id: '3',
@@ -30,7 +35,9 @@ export class DepartmentService {
       hod: 'HOD COMP',
 
       shortDescription: 'this is short description',
-      longDescription: 'long description'
+      longDescription: 'long description',
+
+      imagePath: null
     },
     {
       id: '4',
@@ -38,7 +45,9 @@ export class DepartmentService {
       hod: 'HOD COMP',
 
       shortDescription: 'this is short description',
-      longDescription: 'long description'
+      longDescription: 'long description',
+
+      imagePath: null
     },
     {
       id: '5',
@@ -46,7 +55,9 @@ export class DepartmentService {
       hod: 'HOD COMP',
 
       shortDescription: 'this is short description',
-      longDescription: 'long description'
+      longDescription: 'long description',
+
+      imagePath: null
     },
     {
       id: '6',
@@ -54,13 +65,15 @@ export class DepartmentService {
       hod: 'HOD COMP',
 
       shortDescription: 'this is short description',
-      longDescription: 'long description'
+      longDescription: 'long description',
+
+      imagePath: null
     }
   ];
 
   private departmentsObs = new Subject<Department[]> ();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getDepartmentsObservable() {
     return this.departmentsObs.asObservable();
@@ -68,5 +81,12 @@ export class DepartmentService {
 
   getDepartments() {
     this.departmentsObs.next([...this.departments]);
+  }
+
+  addDepartment(department: Department) {
+    this.http.post<{message: string}> ('http://localhost:3000/api/departments', department)
+      .subscribe( (response) => {
+        console.log(response);
+      });
   }
 }

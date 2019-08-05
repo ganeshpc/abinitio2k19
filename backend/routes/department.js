@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const Department = require('../schemas/department.schema');
+
 router.get('/', (req, res) => {
   //return all departments
 });
@@ -11,7 +13,20 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  //add given department
+
+  const department = new Department({
+    name: req.body.name,
+    hod: req.body.hod,
+    shortDescription: req.body.shortDescription,
+    longDescription: req.body.longDescription,
+    imagePath: req.body.imagePath
+  });
+
+  department.save().then( (department) => {
+    console.log('Department saved to database');
+  }).catch( () => {
+    console.log('Error saving to the database');
+  });
 });
 
 router.put('/:id', (req, res) => {

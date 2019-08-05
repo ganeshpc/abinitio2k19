@@ -51,8 +51,11 @@
         <a mat-menu-item matRipple [routerLink]="['/contact-us']" *ngIf="!(isHandset$ | async)">Contact Us</a>
         <a mat-menu-item matRipple [routerLink]="['/about-us']" *ngIf="!(isHandset$ | async)">About Us</a>
         <a mat-menu-item matRipple [routerLink]="['/faq']" *ngIf="!(isHandset$ | async)">FAQ's</a>
+
         <a mat-menu-item matRipple [routerLink]="['/create-competition']" *ngIf="!(isHandset$ | async)">Create Competition</a>
         <a mat-menu-item matRipple [routerLink]="['/create-student']" *ngIf="!(isHandset$ | async)">Create Student</a>
+        <a mat-menu-item matRipple [routerLink]="['/create-department']" *ngIf="!(isHandset$ | async)">Create Department</a>
+        <a mat-menu-item matRipple [routerLink]="['/create-club']" *ngIf="!(isHandset$ | async)">Create Club</a>
       </mat-menu>
 
     </mat-toolbar>

@@ -10,6 +10,8 @@ import { FaqComponent } from './components/faq/faq.component';
 import { ClubsComponent } from './components/clubs/clubs/clubs.component';
 import { CreateCompetitionComponent } from './components/competitions/create-competition/create-competition.component';
 import { CreateStudentComponent } from './students/create-student/create-student.component';
+import { CreateDepartmentComponent } from './components/departments/create-department/create-department.component';
+import { CreateClubComponent } from './components/clubs/create-club/create-club.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'faq', component: FaqComponent},
 
   {path: 'create-competition', component: CreateCompetitionComponent},
-  {path: 'create-student', component: CreateStudentComponent}
+  {path: 'create-student', component: CreateStudentComponent},
+  {path: 'create-department', component: CreateDepartmentComponent},
+  {path: 'create-club', component: CreateClubComponent}
 ];
 
 @NgModule({

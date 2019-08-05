@@ -71,7 +71,7 @@ export class CreateCompetitionComponent implements OnInit {
   }
 
   onSaveCompetition() {
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       return;
     }
     this.isLoading = true;

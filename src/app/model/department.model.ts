@@ -6,4 +6,6 @@ export interface Department {
 
   shortDescription: string;
   longDescription: string;
+
+  imagePath: string;
 }
