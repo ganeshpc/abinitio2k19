@@ -26,9 +26,4 @@ export class CompetitionsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.competitionSub.unsubscribe();
   }
-
-  addCompetition() {
-    this.competitionService.addCompetition();
-    console.log('add comp clicked');
-  }
 }

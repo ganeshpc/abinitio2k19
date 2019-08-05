@@ -1,6 +1,6 @@
 <div class="container">
   <mat-card>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (submit)="onSaveCompetition()">
 
       <mat-form-field>
         <input matInput type="text" formControlName="name" placeholder="Competition Name">
@@ -17,24 +17,38 @@
 
       <mat-form-field>
         <textarea matInput rows="4" formControlName="shortDescription" placeholder="Short Description"></textarea>
+        <mat-error *ngIf="form.get('shortDescription').invalid">Invalid Description</mat-error>
       </mat-form-field>
 
       <mat-form-field>
           <textarea matInput rows="10" formControlName="longDescription" placeholder="Long Description"></textarea>
+          <mat-error *ngIf="form.get('longDescription').invalid">Invalid Description</mat-error>
       </mat-form-field>
 
       <mat-form-field>
           <textarea matInput rows="4" formControlName="rules" placeholder="rules"></textarea>
+          <mat-error *ngIf="form.get('rules').invalid">Invalid Rules</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="number" formControlName="registrationFees" placeholder="Registration Fees">
+        <mat-error *ngIf="form.get('registrationFees').invalid">Invalid Name</mat-error>
       </mat-form-field>
 
       <mat-form-field>
           <mat-select placeholder="Fees Per" formControlName="feesPer">
-            <mat-option>Participant</mat-option>
-            <mat-option>Team</mat-option>
+            <mat-option *ngFor="let feesPerOption of feesPerOptions" [value]="feesPerOption">
+              {{ feesPerOption }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
 
-      <button mat-raised-button color="accent" type="submit">Save</button>
+      <mat-form-field>
+        <input matInput type="text" formControlName="coordinator" placeholder="Coordinator Name">
+        <mat-error *ngIf="form.get('coordinator').invalid">Invalid Name</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Save</button>
 
     </form>
   </mat-card>
