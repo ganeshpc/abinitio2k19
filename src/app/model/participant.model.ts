@@ -1,8 +1,9 @@
 export interface Participant {
   id: string;
 
-  names: string;
+  name: string;
   competitioneName: string;
+  collegeName: string;
   mobNo: string;
   email: string;
 }

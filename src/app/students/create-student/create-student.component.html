@@ -3,7 +3,7 @@
       <form [formGroup]="form" (submit)="onSaveStudent()">
 
         <mat-form-field>
-          <input matInput type="text" formControlName="name" placeholder="Participant Name">
+          <input matInput type="text" formControlName="name" placeholder="Student Name">
           <mat-error *ngIf="form.get('name').invalid">Invalid Name</mat-error>
         </mat-form-field>
 

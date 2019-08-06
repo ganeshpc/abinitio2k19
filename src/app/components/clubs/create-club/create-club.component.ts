@@ -65,5 +65,6 @@ export class CreateClubComponent implements OnInit {
     };
 
     this.clubService.addClub(club);
+    this.form.reset();
   }
 }
