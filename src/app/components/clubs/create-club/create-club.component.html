@@ -1,1 +1,42 @@
-<p>create-club works!</p>
+<div class="container">
+    <mat-card>
+      <form [formGroup]="form" (submit)="onSaveClub()">
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="name" placeholder="Competition Name">
+            <mat-error *ngIf="form.get('name').invalid">Invalid Name</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Department" formControlName="name">
+            <mat-option *ngFor="let departmentName of departmentNames" [value]="departmentName">
+              {{ departmentName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput rows="4" formControlName="shortDescription" placeholder="Short Description"></textarea>
+          <mat-error *ngIf="form.get('shortDescription').invalid">Invalid Description</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput rows="10" formControlName="longDescription" placeholder="Long Description"></textarea>
+            <mat-error *ngIf="form.get('longDescription').invalid">Invalid Description</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="teamLeader" placeholder="Team Leader Name">
+            <mat-error *ngIf="form.get('teamLeader').invalid">Invalid Name</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="facultyCoordinator" placeholder="Faculty Coordinator Name">
+            <mat-error *ngIf="form.get('facultyCoordinator').invalid">Invalid Name</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Save</button>
+
+      </form>
+    </mat-card>
+</div>
