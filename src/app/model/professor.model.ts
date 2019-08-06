@@ -4,5 +4,6 @@ export interface Professor {
   name: string;
   department: string;
   designation: string;
+  email: string;
   imagePath: string;
 }

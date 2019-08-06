@@ -1,0 +1,35 @@
+<div class="container">
+  <mat-card>
+    <form [formGroup]="form" (submit)="onSaveProfessor()">
+
+      <mat-form-field>
+        <input matInput type="text" formControlName="designation" placeholder="Designation">
+        <mat-error *ngIf="form.get('designation').invalid">Invalid Designation</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="text" formControlName="name" placeholder="Professor Name">
+        <mat-error *ngIf="form.get('name').invalid">Invalid Name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Department" formControlName="department">
+          <mat-option *ngFor="let departmentName of departmentNames" [value]="departmentName">
+            {{ departmentName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput type="email" formControlName="email" placeholder="Email Id">
+          <mat-error *ngIf="form.get('email').invalid">Invalid Email Id</mat-error>
+      </mat-form-field>
+
+      <div>
+        <span class="spacer"></span>
+        <button mat-raised-button color="accent" type="submit">Save</button>
+      </div>
+
+    </form>
+  </mat-card>
+</div>

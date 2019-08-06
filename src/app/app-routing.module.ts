@@ -13,6 +13,7 @@ import { CreateStudentComponent } from './students/create-student/create-student
 import { CreateDepartmentComponent } from './components/departments/create-department/create-department.component';
 import { CreateClubComponent } from './components/clubs/create-club/create-club.component';
 import { CreateParticipantComponent } from './components/participants/create-participant/create-participant.component';
+import { CreateProfessorComponent } from './components/professors/create-professor/create-professor.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'create-student', component: CreateStudentComponent},
   {path: 'create-department', component: CreateDepartmentComponent},
   {path: 'create-club', component: CreateClubComponent},
-  {path: 'create-participant', component: CreateParticipantComponent}
+  {path: 'create-participant', component: CreateParticipantComponent},
+  {path: 'create-professor', component: CreateProfessorComponent}
 ];
 
 @NgModule({
