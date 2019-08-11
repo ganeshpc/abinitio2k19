@@ -1,7 +1,6 @@
 const Student = require('../schemas/student.schema');
 
 exports.createStudent = (req, res) => {
-
   const student = new Student({
     name: req.body.name,
     department: req.body.department,
@@ -17,5 +16,16 @@ exports.createStudent = (req, res) => {
       student: { ...createdStudent._doc }
     });
   });
+};
 
+
+exports.getStudents = (req, res) => {
+  Student.find().then(document => {
+    res.status(200).json({
+      message: 'Students fetched from db',
+      students: document
+    });
+  }).catch(err => {
+    console.log('Error fetching Students from db');
+  });
 };
