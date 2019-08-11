@@ -12,9 +12,9 @@ const competitionSchema = mongoose.Schema({
   registrationFees: {type: Number, require: true},
   feesPer: {type: String, require: true},
 
-  coordinator: {type: String, require: true},
-  subCoordinator1: {type: String},
-  subCoordinator2: {type: String}
+  coordinator: {type: mongoose.Schema.Types.ObjectId, ref: 'Student', require: true},
+  subCoordinator1: {type: mongoose.Schema.Types.ObjectId, ref: 'Student'},
+  subCoordinator2: {type: mongoose.Schema.Types.ObjectId, ref: 'Student'}
 });
 
 module.exports = mongoose.model('Competition', competitionSchema);  //name of the collection created in the database will be plural
