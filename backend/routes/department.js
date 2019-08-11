@@ -7,10 +7,12 @@ const Department = require('../schemas/department.schema');
 router.get('/', (req, res) => {
   Department.find().then(document => {
     res.status(200).json({
-      message: 'successful execution',
+      message: 'Departments fetched from db',
       departments: document
     });
-  })
+  }).catch(err => {
+    console.log('Error fetching Departments from db');
+  });
 });
 
 router.get('/:id', (req, res) => {

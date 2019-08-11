@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
 import { Professor } from 'src/app/model/professor.model';
-import { Department } from 'src/app/model/department.model';
+import { stringify } from 'querystring';
 
 const BASE_URL =  environment.apiUrl + '/professors';
 
@@ -24,7 +24,27 @@ export class ProfessorService {
   }
 
   getProfessors() {
-    this.professorObs.next([...this.professors]);
+    this.http.get<{message: string, professors: any}>(BASE_URL)
+    .pipe(map(responseData => {
+      return {
+        professors: responseData.professors.map(professor => {
+          return {
+            id: professor._id,
+            name: professor.name,
+            department: professor.department,
+            designation: professor.designation,
+            email: professor.email,
+            imagePath: professor.imagePath
+          };
+        }),
+        message: responseData.message
+      };
+    })).subscribe(transformedData => {
+      this.professors = transformedData.professors;
+      this.professorObs.next([...this.professors]);
+    }, err => {
+      console.log('Error fetching professors');
+    });
   }
 
   addProfessor(professor: Professor) {

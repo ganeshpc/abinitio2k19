@@ -5,7 +5,14 @@ const router = express.Router();
 const Club = require('../schemas/club.schema');
 
 router.get('/', (req, res) => {
-  //return all the clubs in the db
+  Club.find().then(document => {
+    res.status(200).json({
+      message: 'Clubs fetched from db',
+      clubs: document
+    });
+  }).catch(err => {
+    console.log('Error fetching Clubs from db');
+  });
 });
 
 router.get('/:id', (req, res) => {

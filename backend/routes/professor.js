@@ -5,7 +5,14 @@ const router = express.Router();
 const Professor = require('../schemas/professor.schema');
 
 router.get('/', (req, res) => {
-  //return profs
+  Professor.find().then(document => {
+    res.status(200).json({
+      message: 'Professors fetched from db',
+      professors: document
+    });
+  }).catch(err => {
+    console.log('Error fetching Professors from db');
+  });
 });
 
 router.get('/:id', (req, res) => {

@@ -95,18 +95,19 @@ export class DepartmentService {
               longDescription: department.longDescription,
               imagePath: department.imagePath
             };
-          })
+          }),
+          message: responseData.message
         };
       })).subscribe(transformedData => {
         this.departments = transformedData.departments;
         this.departmentsObs.next([...this.departments]);
       }, err => {
-        console.log('Error fetching departments');
+        console.log('Error fetching Departments');
       });
   }
 
   addDepartment(department: Department) {
-    this.http.post<{message: string}> ('http://localhost:3000/api/departments', department)
+    this.http.post<{message: string}> (BASE_URL, department)
       .subscribe( (response) => {
         console.log(response);
       });

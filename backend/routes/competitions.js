@@ -5,7 +5,14 @@ const router = express.Router();
 const Competition = require('../schemas/competition.schema');
 
 router.get('/', (req, res,) => {
-  res.send("get all request");
+  Competition.find().then(document => {
+    res.status(200).json({
+      message: 'Competitions fetched from db',
+      competitions: document
+    });
+  }).catch(err => {
+    console.log('Error fetching Competitions from db');
+  });
 });
 
 router.get('/:id', (req, res) => {

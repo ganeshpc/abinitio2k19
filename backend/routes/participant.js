@@ -5,7 +5,14 @@ const router = express.Router();
 const Participant = require('../schemas/participant.schema');
 
 router.get('/', (req, res) => {
-  //get all participants
+  Participant.find().then(document => {
+    res.status(200).json({
+      message: 'Participants fetched from db',
+      participants: document
+    });
+  }).catch(err => {
+    console.log('Error fetching Participants from db');
+  });
 });
 
 router.get('/:id', (req, res) => {
