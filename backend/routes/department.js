@@ -5,7 +5,12 @@ const router = express.Router();
 const Department = require('../schemas/department.schema');
 
 router.get('/', (req, res) => {
-  //return all departments
+  Department.find().then(document => {
+    res.status(200).json({
+      message: 'successful execution',
+      departments: document
+    });
+  })
 });
 
 router.get('/:id', (req, res) => {

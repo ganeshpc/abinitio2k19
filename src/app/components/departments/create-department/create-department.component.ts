@@ -31,7 +31,7 @@ export class CreateDepartmentComponent implements OnInit {
       }),
 
       hod: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(4)]
+        validators: [Validators.minLength(4)]
       }),
 
       shortDescription: new FormControl(null, {

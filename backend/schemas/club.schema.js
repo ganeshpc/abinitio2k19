@@ -10,8 +10,8 @@ const clubSchema = mongoose.Schema({
   shortDescription: {type: String, require: true},
   longDescription: {type: String, require: true},
 
-  teamLeader: {type: mongoose.Schema.Types.ObjectId, ref: "Student", require: true},
-  facultyCoordinator: {type: mongoose.Schema.Types.ObjectId, ref: "Professor", require: true}
+  teamLeader: {type: mongoose.Schema.Types.ObjectId, ref: "Student"},
+  facultyCoordinator: {type: mongoose.Schema.Types.ObjectId, ref: "Professor"}
 });
 
 module.exports = mongoose.model('Club', clubSchema);

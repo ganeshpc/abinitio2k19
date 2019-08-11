@@ -24,8 +24,9 @@ router.post('/', (req, res) => {
 
   professor.save().then( (professor) => {
     console.log('Professor saved to db');
-  }).catch( () => {
+  }).catch( (error) => {
     console.log('Error saving to the database');
+    console.log(error);
   });
 });
 

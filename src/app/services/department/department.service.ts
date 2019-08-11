@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Department } from '../../model/department.model';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
+const BASE_URL = environment.apiUrl + '/departments';
 
 @Injectable({
   providedIn: 'root'
@@ -70,7 +74,6 @@ export class DepartmentService {
       imagePath: null
     }
   ];
-
   private departmentsObs = new Subject<Department[]> ();
 
   constructor(private http: HttpClient) { }
@@ -80,7 +83,26 @@ export class DepartmentService {
   }
 
   getDepartments() {
-    this.departmentsObs.next([...this.departments]);
+    this.http.get<{message: string, departments: any}>(BASE_URL)
+      .pipe(map(responseData => {
+        return {
+          departments: responseData.departments.map(department => {
+            return {
+              id: department._id,
+              name: department.name,
+              hod: department.hod,
+              shortDescription: department.shortDescription,
+              longDescription: department.longDescription,
+              imagePath: department.imagePath
+            };
+          })
+        };
+      })).subscribe(transformedData => {
+        this.departments = transformedData.departments;
+        this.departmentsObs.next([...this.departments]);
+      }, err => {
+        console.log('Error fetching departments');
+      });
   }
 
   addDepartment(department: Department) {

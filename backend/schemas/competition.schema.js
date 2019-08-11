@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const competitionSchema = mongoose.Schema({
   name: {type: String, require: true},
-  department: {type: String, require: true},
+  department: {type: mongoose.Schema.Types.ObjectId, ref: 'Department', require: true},
 
   imagePath: {type: String, require: true},
 
