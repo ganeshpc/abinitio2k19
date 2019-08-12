@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const uiniqueValidator = require('mongoose-unique-validator');
 
 const studentSchema = mongoose.Schema({
   name: {type: String, require: true},
@@ -9,5 +10,7 @@ const studentSchema = mongoose.Schema({
   designation: {type: String, require: true},
   imagePath: {type: String}
 });
+
+studentSchema.plugin(uiniqueValidator);
 
 module.exports = mongoose.model('Student', studentSchema);

@@ -38,6 +38,7 @@ import { CreateDepartmentComponent } from './components/departments/create-depar
 import { CreateClubComponent } from './components/clubs/create-club/create-club.component';
 import { CreateParticipantComponent } from './components/participants/create-participant/create-participant.component';
 import { CreateProfessorComponent } from './components/professors/create-professor/create-professor.component';
+import { StudentLoginComponent } from './auth/student-login/student-login.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CreateProfessorComponent } from './components/professors/create-profess
     CreateDepartmentComponent,
     CreateClubComponent,
     CreateParticipantComponent,
-    CreateProfessorComponent
+    CreateProfessorComponent,
+    StudentLoginComponent
   ],
   imports: [
     BrowserModule,

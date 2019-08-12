@@ -38,6 +38,11 @@
             <mat-error *ngIf="form.get('email').invalid">Invalid Email Id</mat-error>
         </mat-form-field>
 
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" placeholder="Password">
+          <mat-error *ngIf="form.get('password').invalid">Invalid Password</mat-error>
+      </mat-form-field>
+
         <div>
           <span class="spacer"></span>
           <button mat-raised-button color="accent" type="submit">Save</button>
