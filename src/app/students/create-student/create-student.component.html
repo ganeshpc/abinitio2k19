@@ -8,9 +8,17 @@
         </mat-form-field>
 
         <mat-form-field>
+          <mat-select placeholder="Post" formControlName="designation">
+            <mat-option *ngFor="let designation of designations" [value]="designation">
+              {{ designation }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
           <mat-select placeholder="Department" formControlName="department">
-            <mat-option *ngFor="let departmentName of departmentNames" [value]="departmentName">
-              {{ departmentName }}
+            <mat-option *ngFor="let department of departments" [value]="department">
+              {{ department.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>

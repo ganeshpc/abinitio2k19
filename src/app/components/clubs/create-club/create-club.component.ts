@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ClubService } from 'src/app/services/club/club.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+
+import { DepartmentService } from 'src/app/services/department/department.service';
+import { Department } from 'src/app/model/department.model';
+import { ClubService } from 'src/app/services/club/club.service';
 import { Club } from 'src/app/model/club.model';
 
 @Component({
@@ -8,21 +12,15 @@ import { Club } from 'src/app/model/club.model';
   templateUrl: './create-club.component.html',
   styleUrls: ['./create-club.component.css']
 })
-export class CreateClubComponent implements OnInit {
+export class CreateClubComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   isLoading = false;
 
-  public departmentNames: string[] = [
-    'Computer Science',
-    'Automobile',
-    'Civil',
-    'Electronics and Telecommunication',
-    'Instrumentation and Control',
-    'Mechanical'
-  ];
+  public departments: Department[];
+  private departmentsSub: Subscription;
 
-  constructor(private clubService: ClubService) { }
+  constructor(private clubService: ClubService, private departmentService: DepartmentService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -50,6 +48,12 @@ export class CreateClubComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(4)]
       })
     });
+
+    this.departmentsSub = this.departmentService.getDepartmentsObservable()
+    .subscribe(departments => {
+      this.departments = departments;
+    });
+    this.departmentService.getDepartments();
   }
 
   onSaveClub() {
@@ -66,5 +70,9 @@ export class CreateClubComponent implements OnInit {
 
     this.clubService.addClub(club);
     this.form.reset();
+  }
+
+  ngOnDestroy() {
+    this.departmentsSub.unsubscribe();
   }
 }

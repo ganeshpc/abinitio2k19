@@ -7,4 +7,5 @@ export interface Student {
   mobNo: string;
   email: string;
   imagePath: string;
+  designation: string;
 }

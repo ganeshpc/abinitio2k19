@@ -44,9 +44,8 @@ exports.createCompetition = (req, res) => {
 
   competition.save().then( (competition) => {
     console.log('competition saved');
-  }).catch( () => {
-    console.log("error saving to the database");
+    res.send(competition);
+  }).catch(err => {
+    console.log("error saving Competition to the database");
   });
-
-  res.send(competition);
 };

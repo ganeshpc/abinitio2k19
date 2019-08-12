@@ -6,7 +6,7 @@ const studentSchema = mongoose.Schema({
   rollNo: { type: String, require: true},
   mobNo: { type: String, require: true},
   email: { type: String, require: true, uinique: true},
-
+  designation: {type: String, require: true},
   imagePath: {type: String}
 });
 

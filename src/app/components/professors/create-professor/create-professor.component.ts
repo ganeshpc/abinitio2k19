@@ -16,15 +16,6 @@ export class CreateProfessorComponent implements OnInit, OnDestroy {
   form: FormGroup;
   isLoading = false;
 
-  public departmentNames: string[] = [
-    'Computer Science',
-    'Automobile',
-    'Civil',
-    'Electronics and Telecommunication',
-    'Instrumentation and Control',
-    'Mechanical'
-  ];
-
   public departments: Department[];
   private departmentsSub: Subscription;
 
@@ -49,16 +40,14 @@ export class CreateProfessorComponent implements OnInit, OnDestroy {
       })
     });
 
-    this.departmentService.getDepartments();
-
     this.departmentsSub = this.departmentService.getDepartmentsObservable()
     .subscribe(departments => {
       this.departments = departments;
     });
+    this.departmentService.getDepartments();
   }
 
   onSaveProfessor() {
-
     if (this.form.invalid) {
       return;
     }

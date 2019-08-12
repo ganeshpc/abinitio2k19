@@ -7,7 +7,8 @@ exports.createStudent = (req, res) => {
     rollNo: req.body.rollNo,
     mobNo: req.body.mobNo,
     email: req.body.email,
-    imagePath: req.body.imagePath
+    imagePath: req.body.imagePath,
+    designation: req.body.designation
   });
 
   student.save().then( (createdStudent) => {
