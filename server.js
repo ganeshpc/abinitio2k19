@@ -37,6 +37,11 @@ const onError = error => {
   }
 };
 
+// process.on('SIGINT', () => {
+//   console.log('do SIGINT');
+//   process.exit();
+//   });
+
 const onListening = () => {
   const addr = server.address();
   const bind = typeof port === "string" ? "pipe " + port : "port " + port;

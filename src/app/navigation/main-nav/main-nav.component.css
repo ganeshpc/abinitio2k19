@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  min-width: 200px;
 }
 
 .sidenav .mat-toolbar {
@@ -22,8 +22,11 @@
 
 mat-toolbar a {
   display: inline-block;
-  margin: 0 5px;
   color: white;
   text-decoration: none;
   padding: 5px;
+}
+
+button {
+  font-size: 100%;
 }
