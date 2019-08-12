@@ -16,14 +16,6 @@ export class CreateParticipantComponent implements OnInit, OnDestroy {
   form: FormGroup;
   isLoading = false;
 
-  // competitions: string[] = [
-  //   'Rubics',
-  //   'code gen',
-  //   'code vita',
-  //   'chef',
-  //   'hacker rank'
-  // ];
-
   public competitions: Competition[];
   private competitionSub: Subscription;
 

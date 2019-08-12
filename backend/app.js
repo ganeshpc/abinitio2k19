@@ -20,6 +20,7 @@ const departmentRoutes = require('./routes/department');
 const professorRoutes = require('./routes/professor');
 const studentRoutes = require('./routes/student');
 const participantRoutes = require('./routes/participant');
+const userRoutes = require('./routes/user');
 
 
 //CORS
@@ -38,6 +39,7 @@ app.use('/api/departments', departmentRoutes);
 app.use('/api/professors', professorRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/participants', participantRoutes);
+app.use('/api/users', userRoutes);
 
 
 module.exports = app;

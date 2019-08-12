@@ -1,6 +1,7 @@
 const Student = require('../schemas/student.schema');
 
 exports.createStudent = (req, res) => {
+
   const student = new Student({
     name: req.body.name,
     department: req.body.department,
@@ -11,11 +12,16 @@ exports.createStudent = (req, res) => {
     designation: req.body.designation
   });
 
-  student.save().then( (createdStudent) => {
+  student.save().then(createdStudent => {
     res.status(201).json({
       mesage: 'Student added successfully',
-      student: { ...createdStudent._doc }
+      student: createdStudent
     });
+  }).catch(err => {
+    res.status(500).json({
+      message: 'Error savint Student to database',
+      error: err
+    })
   });
 };
 

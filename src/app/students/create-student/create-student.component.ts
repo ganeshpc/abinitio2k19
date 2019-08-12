@@ -5,6 +5,7 @@ import { Student } from 'src/app/model/student.model';
 import { Subscription } from 'rxjs';
 import { Department } from 'src/app/model/department.model';
 import { DepartmentService } from 'src/app/services/department/department.service';
+import { AuthData } from 'src/app/auth/auth-data.model';
 
 @Component({
   selector: 'app-create-student',
@@ -54,6 +55,10 @@ export class CreateStudentComponent implements OnInit, OnDestroy {
 
       email: new FormControl(null, {
         validators: [Validators.required, Validators.email]
+      }),
+
+      password: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
       })
     });
 
@@ -77,12 +82,17 @@ export class CreateStudentComponent implements OnInit, OnDestroy {
       mobNo: this.form.value.mobNo,
       email: this.form.value.email,
       imagePath: null,
-      designation: this.form.value.designation
+      designation: this.form.value.designation,
     };
 
-    this.studentService.addStudent(student);
+    const authData: AuthData = {
+      id: null,
+      email: this.form.value.email,
+      password: this.form.value.password,
+      userInfo: null
+    };
 
-    this.form.reset();
+    this.studentService.addStudent(student, authData);
   }
 
   ngOnDestroy() {
