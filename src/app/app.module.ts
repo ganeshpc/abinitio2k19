@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MainNavComponent } from './navigation/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -39,6 +39,7 @@ import { CreateClubComponent } from './components/clubs/create-club/create-club.
 import { CreateParticipantComponent } from './components/participants/create-participant/create-participant.component';
 import { CreateProfessorComponent } from './components/professors/create-professor/create-professor.component';
 import { StudentLoginComponent } from './auth/student-login/student-login.component';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { StudentLoginComponent } from './auth/student-login/student-login.compon
     MatSelectModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

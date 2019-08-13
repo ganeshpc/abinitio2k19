@@ -16,7 +16,7 @@
 
       <span class="spacer"></span>
 
-      <a mat-list-item [routerLink]="['/create-student']">adminLogin</a>
+      <a mat-list-item [routerLink]="['/create-student']">Create Student</a>
     </mat-nav-list>
 
   </mat-sidenav>
@@ -40,6 +40,8 @@
       <button mat-button> <a mat-list-item [routerLink]="['/competitions']" *ngIf="!(isHandset$ | async)">Competitions</a> </button>
       <button mat-button> <a mat-list-item [routerLink]="['/departments']" *ngIf="!(isHandset$ | async)">Departments</a> </button>
       <button mat-button> <a mat-list-item [routerLink]="['/clubs']" *ngIf="!(isHandset$ | async)">Clubs</a> </button>
+      <button mat-button *ngIf="!authenticationStatus"> <a mat-list-item [routerLink]="['/student-login']" *ngIf="!(isHandset$ | async)">Login</a> </button>
+      <button mat-button *ngIf="authenticationStatus" (click)="onLogout()"> <a mat-list-item *ngIf="!(isHandset$ | async)">Logout</a> </button>
 
       <button mat-button [matMenuTriggerFor]="moreMenu" *ngIf="!(isHandset$ | async)">
         <span class="mat-button-wrapper"> More

@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, share } from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/auth-service.service';
 
 @Component({
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.css']
 })
-export class MainNavComponent {
+export class MainNavComponent implements OnInit, OnDestroy {
+
+  public authenticationStatus = false;
+  private authObservalbeSub: Subscription;
+
+  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService) {}
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -16,6 +22,21 @@ export class MainNavComponent {
       share()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  ngOnInit() {
+
+    this.authenticationStatus = this.authService.getAuthenticationStatus();
+    this.authObservalbeSub = this.authService.getAuthStatusObservable()
+    .subscribe(authenticationStatus => {
+      this.authenticationStatus = authenticationStatus;
+    });
+  }
+
+  onLogout() {
+    this.authService.logoutUser();
+  }
+
+  ngOnDestroy() {
+    this.authObservalbeSub.unsubscribe();
+  }
 
 }
