@@ -48,7 +48,6 @@ export class AuthService {
       if (this.token) {
         const expiresInDuration = response.expiresIn;
         this.setAuthTimer(expiresInDuration);
-        console.log(expiresInDuration);
         this.authenticationStatus = true;
         this.authStatusObs.next(true);
         const now = new Date();

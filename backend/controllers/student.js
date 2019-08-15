@@ -1,7 +1,8 @@
 const Student = require('../schemas/student.schema');
 
-exports.createStudent = (req, res) => {
 
+exports.createStudent = (req, res) => {
+  const url = req.protocol + '://' + req.get('host');
   const student = new Student({
     name: req.body.name,
     department: req.body.department,
@@ -9,7 +10,8 @@ exports.createStudent = (req, res) => {
     mobNo: req.body.mobNo,
     email: req.body.email,
     imagePath: req.body.imagePath,
-    designation: req.body.designation
+    designation: req.body.designation,
+    imagePath: url + '/images/students/' + req.file.filename
   });
 
   student.save().then(createdStudent => {

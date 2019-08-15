@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Department } from 'src/app/model/department.model';
 import { DepartmentService } from 'src/app/services/department/department.service';
 import { AuthData } from 'src/app/auth/auth-data.model';
+import { mimeType } from './mime-type.validator';
 
 @Component({
   selector: 'app-create-student',
@@ -26,6 +27,8 @@ export class CreateStudentComponent implements OnInit, OnDestroy {
     'Team Member'
   ];
 
+  imagePreview: string;
+
   public departments: Department[];
   private departmentsSub: Subscription;
 
@@ -39,6 +42,11 @@ export class CreateStudentComponent implements OnInit, OnDestroy {
 
       designation: new FormControl(null, {
         validators: [Validators.required]
+      }),
+
+      image: new FormControl(null, {
+        validators: [Validators.required],
+        asyncValidators: [mimeType]
       }),
 
       department: new FormControl(null, {
@@ -92,7 +100,19 @@ export class CreateStudentComponent implements OnInit, OnDestroy {
       userInfo: null
     };
 
-    this.studentService.addStudent(student, authData);
+    this.studentService.addStudent(student, authData, this.form.value.image);
+  }
+
+  onImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({image: file});
+    this.form.get('image').updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = (reader.result as string);
+    };
+    reader.readAsDataURL(file);
   }
 
   ngOnDestroy() {

@@ -1,9 +1,11 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
 app.use(express.json());                       //for using body json of request
 
+app.use('/images', express.static(path.join('backend/images')));
 
 //connecting mongo db
 mongoose.connect('mongodb://localhost/test?authSource=admin', { user: 'admin', pass: 'abinitio2k19', useNewUrlParser: true }).then( () => {

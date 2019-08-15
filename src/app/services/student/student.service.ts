@@ -28,13 +28,15 @@ export class StudentService {
       return {
         students: responseData.students.map(student => {
           return {
-            id: student._id,
-            name: student.name,
-            department: student.department,
-            rollNo: student.rollNo,
-            mobNo: student.mobNo,
-            email: student.email,
-            imagePath: student.imagePath
+            ...responseData.students,
+            id: student._id
+            // ,
+            // name: student.name,
+            // department: student.department,
+            // rollNo: student.rollNo,
+            // mobNo: student.mobNo,
+            // email: student.email,
+            // imagePath: student.imagePath
           };
         }),
         message: responseData.message
@@ -47,8 +49,21 @@ export class StudentService {
     });
   }
 
-  addStudent(student: Student, user: AuthData) {
-    this.http.post<{message: string, student: any}> (BASE_URL, student)
+  addStudent(student: Student, user: AuthData, image: File) {
+
+    const formData = new FormData();
+    formData.append('name', student.name);
+    formData.append('department', student.department);
+    formData.append('rollNo', student.rollNo);
+    formData.append('mobNo', student.mobNo);
+    formData.append('email', student.email);
+    formData.append('imagePath', student.imagePath);
+    formData.append('designation', student.designation);
+    formData.append('image', image, student.name);
+
+    console.log(image);
+
+    this.http.post<{message: string, student: any}> (BASE_URL, formData)
       .subscribe(response => {
         console.log('add student response' + response);
         const userWithInfo: AuthData = {
