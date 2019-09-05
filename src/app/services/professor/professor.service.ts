@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
 import { Professor } from 'src/app/model/professor.model';
-import { stringify } from 'querystring';
 
 const BASE_URL =  environment.apiUrl + '/professors';
 
@@ -29,12 +28,8 @@ export class ProfessorService {
       return {
         professors: responseData.professors.map(professor => {
           return {
-            id: professor._id,
-            name: professor.name,
-            department: professor.department,
-            designation: professor.designation,
-            email: professor.email,
-            imagePath: professor.imagePath
+            ...professor,
+            id: professor._id
           };
         }),
         message: responseData.message

@@ -10,7 +10,7 @@
       <mat-form-field>
         <mat-select placeholder="Competition" formControlName="competitionName">
           <mat-option *ngFor="let competition of competitions" [value]="competition">
-            {{ competition }}
+            {{ competition.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>

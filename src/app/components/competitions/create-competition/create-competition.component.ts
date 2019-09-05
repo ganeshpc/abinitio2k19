@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators, MinLengthValidator } from '@angular/forms';
-import { CompetitionService } from 'src/app/services/competition/competition.service';
+import { Subscription } from 'rxjs';
+
 import { Competition } from 'src/app/model/competition.model';
 import { Department } from 'src/app/model/department.model';
-import { Subscription } from 'rxjs';
-import { DepartmentService } from 'src/app/services/department/department.service';
-import { StudentService } from 'src/app/services/student/student.service';
 import { Student } from 'src/app/model/student.model';
+
+import { DepartmentService } from 'src/app/services/department/department.service';
+import { CompetitionService } from 'src/app/services/competition/competition.service';
+import { StudentService } from 'src/app/services/student/student.service';
 
 @Component({
   selector: 'app-create-competition',
@@ -31,7 +33,8 @@ export class CreateCompetitionComponent implements OnInit, OnDestroy {
 
   constructor(private competitionService: CompetitionService,
               private departmentService: DepartmentService,
-              private studentService: StudentService) { }
+              private studentService: StudentService
+              ) { }
 
   ngOnInit() {
     this.form = new FormGroup({

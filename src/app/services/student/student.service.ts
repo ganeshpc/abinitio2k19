@@ -28,7 +28,7 @@ export class StudentService {
       return {
         students: responseData.students.map(student => {
           return {
-            ...responseData.students,
+            ...student,
             id: student._id
             // ,
             // name: student.name,
@@ -42,6 +42,7 @@ export class StudentService {
         message: responseData.message
       };
     })).subscribe(transformedData => {
+      console.log(transformedData);
       this.students = transformedData.students;
       this.studentObj.next([...this.students]);
     }, err => {

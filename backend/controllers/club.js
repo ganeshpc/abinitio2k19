@@ -25,7 +25,7 @@ exports.createClub = (req, res) => {
 
   club.save().then( (club) => {
     console.log('club saved');
-  }).catch( () => {
-    console.log('Error saving club');
+  }).catch( err => {
+    console.log('Error saving club: ' + err);
   });
 };

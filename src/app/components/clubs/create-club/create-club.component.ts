@@ -6,6 +6,10 @@ import { DepartmentService } from 'src/app/services/department/department.servic
 import { Department } from 'src/app/model/department.model';
 import { ClubService } from 'src/app/services/club/club.service';
 import { Club } from 'src/app/model/club.model';
+import { StudentService } from 'src/app/services/student/student.service';
+import { Student } from 'src/app/model/student.model';
+import { ProfessorService } from 'src/app/services/professor/professor.service';
+import { Professor } from 'src/app/model/professor.model';
 
 @Component({
   selector: 'app-create-club',
@@ -18,9 +22,19 @@ export class CreateClubComponent implements OnInit, OnDestroy {
   isLoading = false;
 
   public departments: Department[];
-  private departmentsSub: Subscription;
+  public students: Student[];
+  public professors: Professor[];
 
-  constructor(private clubService: ClubService, private departmentService: DepartmentService) { }
+  private departmentsSub: Subscription;
+  private studentSub: Subscription;
+  private professorSub: Subscription;
+
+  constructor(
+    private clubService: ClubService,
+    private departmentService: DepartmentService,
+    private studentService: StudentService,
+    private professorService: ProfessorService
+    ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -54,6 +68,18 @@ export class CreateClubComponent implements OnInit, OnDestroy {
       this.departments = departments;
     });
     this.departmentService.getDepartments();
+
+    this.studentSub = this.studentService.getStudentObservable()
+    .subscribe(students => {
+      this.students = students;
+    });
+    this.studentService.getStudents();
+
+    this.professorSub = this.professorService.getProfessorObservable()
+    .subscribe(professors => {
+      this.professors = professors;
+    });
+    this.professorService.getProfessors();
   }
 
   onSaveClub() {
@@ -64,8 +90,8 @@ export class CreateClubComponent implements OnInit, OnDestroy {
       imagePath: null,
       shortDescription: this.form.value.shortDescription,
       longDescription: this.form.value.longDescription,
-      teamLeader: this.form.value.teamLeader,
-      facultyCoordinator: this.form.value.facultyCoordinator
+      teamLeader: this.form.value.teamLeader.id,
+      facultyCoordinator: this.form.value.facultyCoordinator.id
     };
 
     this.clubService.addClub(club);
@@ -74,5 +100,7 @@ export class CreateClubComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.departmentsSub.unsubscribe();
+    this.studentSub.unsubscribe();
+    this.professorSub.unsubscribe();
   }
 }

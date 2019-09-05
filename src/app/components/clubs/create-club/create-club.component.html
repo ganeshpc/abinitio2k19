@@ -3,7 +3,7 @@
       <form [formGroup]="form" (submit)="onSaveClub()">
 
         <mat-form-field>
-            <input matInput type="text" formControlName="name" placeholder="Competition Name">
+            <input matInput type="text" formControlName="name" placeholder="Club Name">
             <mat-error *ngIf="form.get('name').invalid">Invalid Name</mat-error>
         </mat-form-field>
 
@@ -26,13 +26,19 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput type="text" formControlName="teamLeader" placeholder="Team Leader Name">
-            <mat-error *ngIf="form.get('teamLeader').invalid">Invalid Name</mat-error>
+          <mat-select placeholder="Team Leader Name" formControlName="teamLeader">
+            <mat-option *ngFor="let student of students" [value]="student">
+              {{ student.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput type="text" formControlName="facultyCoordinator" placeholder="Faculty Coordinator Name">
-            <mat-error *ngIf="form.get('facultyCoordinator').invalid">Invalid Name</mat-error>
+          <mat-select placeholder="Faculty Coordinator Name" formControlName="facultyCoordinator">
+            <mat-option *ngFor="let professor of professors" [value]="professor">
+              {{ professor.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <button mat-raised-button color="primary" type="submit">Save</button>
