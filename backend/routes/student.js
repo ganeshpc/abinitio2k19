@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const StudentController = require('../controllers/student');
-const extractFile = require('../middleware/student-mime-type.validator');
+const extractFile = require('../middleware/image/student-mime-type.validator');
 
 router.get('/', StudentController.getStudents);
 

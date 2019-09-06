@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const DepartmentController = require('../controllers/department');
-const extractFile = require('../middleware/department-mime-type.validator');
+const extractFile = require('../middleware/image/department-mime-type.validator');
 
 router.get('/', DepartmentController.getDepartments);
 

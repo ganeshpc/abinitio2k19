@@ -3,7 +3,7 @@ const router = express.Router();
 
 const CompetitionController = require('../controllers/competition');
 const checkAuth = require('../middleware/auth.middleware');
-const extractFile = require('../middleware/competition-mime-type.validator');
+const extractFile = require('../middleware/image/competition-mime-type.validator');
 
 router.get('/', CompetitionController.getCompetitions);
 

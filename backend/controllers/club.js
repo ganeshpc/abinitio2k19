@@ -13,19 +13,20 @@ exports.getClubs = (req, res) => {
 
 
 exports.createClub = (req, res) => {
+  const url = req.protocol + '://' + req.get('host');
   const club = new Club({
     name: req.body.name,
     department: req.body.department,
-    imagePath: req.body.imagePath,
+    imagePath: url + '/images/clubs/' + req.file.filename,
     shortDescription: req.body.shortDescription,
     longDescription: req.body.longDescription,
     teamLeader: req.body.teamLeader,
     facultyCoordinator: req.body.facultyCoordinator
   });
 
-  club.save().then( (club) => {
+  club.save().then(club => {
     console.log('club saved');
-  }).catch( err => {
+  }).catch(err => {
     console.log('Error saving club: ' + err);
   });
 };

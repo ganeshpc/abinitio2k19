@@ -68,8 +68,19 @@ export class ClubService {
       });
   }
 
-  addClub(club: Club) {
-    this.http.post<{message: string}> (BASE_URL, club)
+  addClub(club: Club, image: File) {
+
+    const formData = new FormData();
+
+    Object.keys(club).forEach(key => {
+      if (club[key] != null) {
+        formData.append(key, club[key]);
+      }
+    });
+
+    formData.append('image', image, club.name);
+
+    this.http.post<{message: string}> (BASE_URL, formData)
       .subscribe( (response) => {
         console.log(response);
       });
