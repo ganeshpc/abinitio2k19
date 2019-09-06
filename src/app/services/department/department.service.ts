@@ -41,9 +41,19 @@ export class DepartmentService {
       });
   }
 
-  addDepartment(department: Department) {
-    this.http.post<{message: string}> (BASE_URL, department)
-      .subscribe( (response) => {
+  addDepartment(department: Department, image: File) {
+
+    const formData = new FormData();
+
+    formData.append('name', department.name);
+    formData.append('hod', department.hod);
+    formData.append('shortDescription', department.shortDescription);
+    formData.append('longDescription', department.longDescription);
+    formData.append('imagePath', department.imagePath);
+    formData.append('image', image, department.name);
+
+    this.http.post<{message: string}> (BASE_URL, formData)
+      .subscribe(response => {
         console.log(response);
       });
   }

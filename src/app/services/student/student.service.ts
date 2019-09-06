@@ -30,13 +30,6 @@ export class StudentService {
           return {
             ...student,
             id: student._id
-            // ,
-            // name: student.name,
-            // department: student.department,
-            // rollNo: student.rollNo,
-            // mobNo: student.mobNo,
-            // email: student.email,
-            // imagePath: student.imagePath
           };
         }),
         message: responseData.message

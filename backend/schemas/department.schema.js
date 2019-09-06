@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const departmentSchema = new mongoose.Schema({
   name: {type: String, required: true, unique: true},
-  hod: {type: mongoose.Schema.Types.ObjectId, ref: 'Professor'},
+  hod: {type: String, ref: 'Professor'},
 
   shortDescription: {type: String, required: true},
   longDescription: {type: String, required: true},

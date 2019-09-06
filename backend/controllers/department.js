@@ -13,17 +13,18 @@ exports.getDepartments = (req, res) => {
 
 
 exports.createDepartment = (req, res) => {
+  const url = req.protocol + '://' + req.get('host');
   const department = new Department({
     name: req.body.name,
     hod: req.body.hod,
     shortDescription: req.body.shortDescription,
     longDescription: req.body.longDescription,
-    imagePath: req.body.imagePath
+    imagePath: url + '/images/departments/' + req.file.filename
   });
 
-  department.save().then( (department) => {
+  department.save().then(department => {
     console.log('Department saved to database');
-  }).catch( () => {
-    console.log('Error saving to the database');
+  }).catch(err => {
+    console.log('Error saving to the database: ' + err);
   });
 };

@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Department } from 'src/app/model/department.model';
 import { DepartmentService } from 'src/app/services/department/department.service';
 import { AuthData } from 'src/app/auth/auth-data.model';
-import { mimeType } from './mime-type.validator';
+import { mimeType } from '../../validaotors/mime-type.validator';
 
 @Component({
   selector: 'app-create-student',
