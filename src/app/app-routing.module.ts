@@ -28,11 +28,11 @@ const routes: Routes = [
   {path: 'faq', component: FaqComponent},
 
   {path: 'create-competition', component: CreateCompetitionComponent, canActivate: [AuthGuard]},
-  {path: 'create-student', component: CreateStudentComponent},
-  {path: 'create-department', component: CreateDepartmentComponent},
-  {path: 'create-club', component: CreateClubComponent},
-  {path: 'create-participant', component: CreateParticipantComponent},
-  {path: 'create-professor', component: CreateProfessorComponent},
+  {path: 'create-student', component: CreateStudentComponent, canActivate: [AuthGuard]},
+  {path: 'create-department', component: CreateDepartmentComponent, canActivate: [AuthGuard]},
+  {path: 'create-club', component: CreateClubComponent, canActivate: [AuthGuard]},
+  {path: 'create-participant', component: CreateParticipantComponent, canActivate: [AuthGuard]},
+  {path: 'create-professor', component: CreateProfessorComponent, canActivate: [AuthGuard]},
   {path: 'student-login', component: StudentLoginComponent}
 ];
 
