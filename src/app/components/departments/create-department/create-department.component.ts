@@ -52,6 +52,18 @@ export class CreateDepartmentComponent implements OnInit {
     });
   }
 
+  onImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({image: file});
+    this.form.get('image').updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = (reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  }
+
   onSaveDepartment() {
     const department: Department = {
       id: null,
@@ -63,18 +75,6 @@ export class CreateDepartmentComponent implements OnInit {
     };
 
     this.departmentService.addDepartment(department, this.form.value.image);
-  }
-
-  onImagePicked(event: Event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    this.form.patchValue({image: file});
-    this.form.get('image').updateValueAndValidity();
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imagePreview = (reader.result as string);
-    };
-    reader.readAsDataURL(file);
   }
 
 }

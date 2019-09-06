@@ -27,11 +27,10 @@ exports.getCompetition = (req, res) => {
 
 
 exports.createCompetition = (req, res) => {
-
+  const url = req.protocol + '://' + req.get('host');
   const competition = new Competition({
     name: req.body.name,
     department: req.body.department,
-    imagePath: req.body.imagePath,
     shortDescription: req.body.shortDescription,
     longDescription: req.body.longDescription,
     rules: req.body.rules,
@@ -39,13 +38,14 @@ exports.createCompetition = (req, res) => {
     feesPer: req.body.feesPer,
     coordinator: req.body.coordinator,
     subCoordinator1: req.body.subCoordinator1,
-    subCoordinator2: req.body.subCoordinator2
+    subCoordinator2: req.body.subCoordinator2,
+    imagePath: url + '/images/departments/' + req.file.filename
   });
 
   competition.save().then( (competition) => {
     console.log('competition saved');
     res.send(competition);
   }).catch(err => {
-    console.log("error saving Competition to the database");
+    console.log("error saving Competition to the database: " + err);
   });
 };

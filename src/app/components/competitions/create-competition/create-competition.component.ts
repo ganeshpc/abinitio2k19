@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators, MinLengthValidator } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
+import { mimeType } from '../../../validaotors/mime-type.validator';
+
 import { Competition } from 'src/app/model/competition.model';
 import { Department } from 'src/app/model/department.model';
 import { Student } from 'src/app/model/student.model';
@@ -19,6 +21,7 @@ export class CreateCompetitionComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   isLoading = false;
+  imagePreview: string;
 
   public departments: Department[];
   private departmentsSub: Subscription;
@@ -49,6 +52,11 @@ export class CreateCompetitionComponent implements OnInit, OnDestroy {
 
       shortDescription: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(50)]
+      }),
+
+      image: new FormControl(null, {
+        validators: [Validators.required],
+        asyncValidators: [mimeType]
       }),
 
       longDescription: new FormControl(null, {
@@ -89,6 +97,18 @@ export class CreateCompetitionComponent implements OnInit, OnDestroy {
     this.studentService.getStudents();
   }
 
+  onImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({image: file});
+    this.form.get('image').updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = (reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  }
+
   onSaveCompetition() {
     if (this.form.invalid) {
       return;
@@ -110,7 +130,7 @@ export class CreateCompetitionComponent implements OnInit, OnDestroy {
       subCoordinator2: null
     };
 
-    this.competitionService.addCompetition(competition);
+    this.competitionService.addCompetition(competition, this.form.value.image);
   }
 
   ngOnDestroy() {

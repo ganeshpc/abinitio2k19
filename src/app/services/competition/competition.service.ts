@@ -4,7 +4,6 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { CompetitionsComponent } from 'src/app/components/competitions/competitions/competitions.component';
 
 const BASE_URL = environment.apiUrl + '/competitions';
 
@@ -197,10 +196,20 @@ export class CompetitionService {
     this.competitionsObs.next([...this.competitions]);
   }
 
-  addCompetition(competition: Competition) {
+  addCompetition(competition: Competition, image: File) {
 
-    this.http.post<{message: string}> ('http://localhost:3000/api/competitions', competition)
-      .subscribe( (response) => {
+    const formData = new FormData();
+
+    Object.keys(competition).forEach(key => {
+      if (competition[key] != null) {
+        formData.append(key, competition[key]);
+      }
+    });
+
+    formData.append('image', image, competition.name);
+
+    this.http.post<{message: string}> (BASE_URL, formData)
+      .subscribe(response => {
         console.log(response);
       });
   }
