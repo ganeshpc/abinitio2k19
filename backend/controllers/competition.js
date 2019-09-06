@@ -39,7 +39,7 @@ exports.createCompetition = (req, res) => {
     coordinator: req.body.coordinator,
     subCoordinator1: req.body.subCoordinator1,
     subCoordinator2: req.body.subCoordinator2,
-    imagePath: url + '/images/departments/' + req.file.filename
+    imagePath: url + '/images/competitions/' + req.file.filename
   });
 
   competition.save().then( (competition) => {

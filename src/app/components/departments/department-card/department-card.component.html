@@ -4,7 +4,7 @@
     <mat-card-title>{{ department.name }}</mat-card-title>
     <mat-card-subtitle>Department subtitle</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://mediacache.homeimprovementpages.com.au/creative/galleries/1290001_1295000/1291937/original_images/1004601.jpg" alt="Photo of a Shiba Inu">
+  <img mat-card-image [src]="department.imagePath" alt="department.name">
   <mat-card-content>
     <p class="info">
       {{ department.shortDescription }}

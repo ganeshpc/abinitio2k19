@@ -10,13 +10,13 @@ import { Subscription } from 'rxjs';
 })
 export class CompetitionsComponent implements OnInit, OnDestroy {
 
-  public competitions: Competition[] = [];
+  public competitions: Competition[];
   private competitionSub: Subscription;
 
   constructor(private competitionService: CompetitionService) { }
 
   ngOnInit() {
-    this.competitionSub = this.competitionService.getCompetitionsObservable().subscribe( (competitions: Competition[]) => {
+    this.competitionSub = this.competitionService.getCompetitionsObservable().subscribe((competitions: Competition[]) => {
       this.competitions = competitions;
     });
 
